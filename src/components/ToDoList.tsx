@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import ToDo from './ToDo';
+import ToDo, {ToDoDemo} from './ToDo';
 
 const ToDoList = () => {
     const [todo, setTodo] = useState(""); 
@@ -7,7 +7,9 @@ const ToDoList = () => {
     
     const onClick = () => {
         setTodoList([...todoList, todo])
+        setTodo("")
     }
+    
 
     return (
         <div>
@@ -22,7 +24,11 @@ const ToDoList = () => {
                 />
                 <button onClick={onClick} className="btn btn-primary">Add</button>
             </div>
-            <ToDo title="My Work" detail="lorem5"></ToDo>
+            {
+                todoList.map((todo) => <ToDo key={todo} title={todo} detail={todo}></ToDo>)
+            }
+            <ToDoDemo title="Someone" detail="de"></ToDoDemo>
+            
         </div>
     );
 };
