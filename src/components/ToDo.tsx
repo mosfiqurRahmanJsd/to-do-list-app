@@ -2,10 +2,11 @@ import React from 'react';
 
 interface IProps {
     title: string, 
-    detail : string
+    detail : string, 
+    handleRemove: (title: string) => void
 }
 
-const ToDo = ({title, detail}: IProps): JSX.Element => {
+const ToDo = ({title, detail, handleRemove}: IProps): JSX.Element => {
     return (
         
         <div className="card">
@@ -15,6 +16,7 @@ const ToDo = ({title, detail}: IProps): JSX.Element => {
             <p>
                 <strong>Details:</strong> {detail}
             </p>
+            <button onClick={() => handleRemove(title)} className="btn btn-warning">Delete</button>
         </div>
     );
 };
