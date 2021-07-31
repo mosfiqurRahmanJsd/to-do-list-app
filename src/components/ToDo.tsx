@@ -2,20 +2,23 @@ import React from 'react';
 
 interface IProps {
     title: string, 
-    detail ?: string
+    detail : string
 }
 
-const ToDo = (props: IProps) => {
+const ToDo = ({title, detail}: IProps): JSX.Element => {
     return (
+        
         <div className="card">
             <p>
-                <strong>Title:</strong> {props.title}
+                <strong>Title:</strong> {title}
             </p>
             <p>
-                <strong>Details:</strong> {props.detail}
+                <strong>Details:</strong> {detail}
             </p>
         </div>
     );
 };
+
+
 
 export default ToDo;
